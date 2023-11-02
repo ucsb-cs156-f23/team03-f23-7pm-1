@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f23/team03-f23-7pm-1
 owner: ucsb-cs156-f23
 repo_name: team03-f23-7pm-1
-pull_requests: [{"author":{"id":"U_kgDOBdDdWA","is_bot":false,"login":"awesomebob35","name":"Joseph Yue"},"headRefName":"jy-Articles-CRUD","number":62,"title":"Copied over all APIs","url":"https://github.com/ucsb-cs156-f23/team03-f23-7pm-1/pull/62"},{"author":{"id":"MDQ6VXNlcjMzMjcwMjMy","is_bot":false,"login":"Irreflexive","name":"Carson"},"headRefName":"Carson-UCSBDiningCommonsMenuItem-copy-backend","number":61,"title":"ck - copied backend files from team02 for UCSBDiningCommonsMenuItem","url":"https://github.com/ucsb-cs156-f23/team03-f23-7pm-1/pull/61"}]
+pull_requests: [{"author":{"id":"MDQ6VXNlcjMzMjcwMjMy","is_bot":false,"login":"Irreflexive","name":"Carson"},"headRefName":"Carson-UCSBDiningCommonsMenuItem-copy-backend","number":61,"title":"ck - copied backend files from team02 for UCSBDiningCommonsMenuItem","url":"https://github.com/ucsb-cs156-f23/team03-f23-7pm-1/pull/61"}]
