@@ -29,6 +29,10 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
         );
 
         expect(await screen.findByText(/Create/)).toBeInTheDocument();
+        expect(await screen.findByTestId(`${testId}-name`)).toBeInTheDocument();
+        expect(await screen.findByTestId(`${testId}-diningCommonsCode`)).toBeInTheDocument();
+        expect(await screen.findByTestId(`${testId}-station`)).toBeInTheDocument();
+        expect(await screen.findByTestId(`${testId}-submit`)).toBeInTheDocument();
 
         expectedHeaders.forEach((headerText) => {
             const header = screen.getByText(headerText);
@@ -104,7 +108,7 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
         fireEvent.click(submitButton);
 
         await waitFor(() => {
-            expect(screen.getByText(/Invalid dining commons code/)).toBeInTheDocument();
+            expect(screen.getByText(/Invalid dining commons code. Options are: carillo, de-la-guerra, portola, ortega/)).toBeInTheDocument();
         });
     });
 
