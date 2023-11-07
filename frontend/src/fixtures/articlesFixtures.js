@@ -5,7 +5,7 @@ const articlesFixtures = {
         "url": "www.deepseaexploration.com/mariana_trench",
         "explanation": "This article provides an in-depth look at the Mariana Trench, the deepest part of the world's oceans.",
         "email": "editor@deepseaexploration.com",
-        "dateAdded": "2023-11-04T17:46:15.228"
+        "dateAdded": "2023-11-04T17:46"
     },
     threeArticles: [
         {
@@ -14,7 +14,7 @@ const articlesFixtures = {
             "url": "www.quantumphysicsinsights.com/mysteries",
             "explanation": "This article delves into the enigmatic world of quantum physics, explaining its fundamental principles in an accessible way.",
             "email": "info@quantumphysicsinsights.com", 
-            "dateAdded": "2023-11-04T17:48:57.000"
+            "dateAdded": "2023-11-04T17:48"
         },
         {
             "id": 2, 
@@ -22,7 +22,7 @@ const articlesFixtures = {
             "url": "www.dogtrainingtips.com/train_your_dog",
             "explanation": "This article offers practical advice on how to train your dog to obey basic commands, behave well, and have fun.",
             "email": "support@dogtrainingtips.com", 
-            "dateAdded": "2023-11-04T17:51:13.356"
+            "dateAdded": "2023-11-04T17:51"
         },
         {
             "id": 3, 
@@ -30,7 +30,7 @@ const articlesFixtures = {
             "url": "www.aifutureinsights.com/ai_future",
             "explanation": "This article discusses the potential future developments in the field of artificial intelligence and their implications.",
             "email": "editor@aifutureinsights.com", 
-            "dateAdded": "2023-11-03T12:35:27.123"
+            "dateAdded": "2023-11-03T12:35"
         }
     ]
 }
