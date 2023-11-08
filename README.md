@@ -7,8 +7,6 @@ Deployments:
 * Prod: <https://team03.dokku-09.cs.ucsb.edu>
 * QA: <https://team03-qa.dokku-09.cs.ucsb.edu>
 
-TODO: Fill in this table with correct information. 
-
 | Table                     | Name         | Github Id |
 |---------------------------|--------------|-----------|
 | UCSBDiningCommonsMenuItem | Carson            | Irreflexive      |
