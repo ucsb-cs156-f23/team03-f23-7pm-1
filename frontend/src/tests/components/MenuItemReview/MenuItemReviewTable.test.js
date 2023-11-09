@@ -1,6 +1,4 @@
 import { fireEvent, render, waitFor, screen } from "@testing-library/react";
-import { ucsbDatesFixtures } from "fixtures/ucsbDatesFixtures";
-import UCSBDatesTable from "main/components/UCSBDates/UCSBDatesTable"
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
@@ -22,10 +20,11 @@ describe("UserTable tests", () => {
 
     const currentUser = currentUserFixtures.userOnly;
 
+    console.log("list=", menuItemReviewFixtures.threeReviews)
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable dates={menuItemReviewFixtures.threeReviews} currentUser={currentUser} />
+          <MenuItemReviewTable reviews={menuItemReviewFixtures.threeReviews} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
@@ -45,8 +44,8 @@ describe("UserTable tests", () => {
       expect(header).toBeInTheDocument();
     });
 
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
 
     const editButton = screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).not.toBeInTheDocument();
@@ -63,14 +62,14 @@ describe("UserTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable dates={menuItemReviewFixtures.threeDates} currentUser={currentUser} />
+          <MenuItemReviewTable reviews={menuItemReviewFixtures.threeReviews} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
     );
 
-    const expectedHeaders = ["id", "QuarterYYYYQ", "Name", "Date"];
-    const expectedFields = ["id", "quarterYYYYQ", "name", "localDateTime"];
+    const expectedHeaders = ["id", "itemId", "Stars", "Reviewer Email", "Date Reviewed", "Comments"];
+    const expectedFields = ["id", "itemId", "stars", "reviewerEmail", "dateReviewed", "comments"];
     const testId = "MenuItemReviewTable";
 
     expectedHeaders.forEach((headerText) => {
@@ -83,8 +82,8 @@ describe("UserTable tests", () => {
       expect(header).toBeInTheDocument();
     });
 
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
@@ -103,20 +102,20 @@ describe("UserTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable dates={menuItemReviewFixtures.threeDates} currentUser={currentUser} />
+          <MenuItemReviewTable reviews={menuItemReviewFixtures.threeReviews} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
     );
 
-    await waitFor(() => { expect(screen.getByTestId(`MenuItemReviewTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
+    await waitFor(() => { expect(screen.getByTestId(`MenuItemReviewTable-cell-row-0-col-id`)).toHaveTextContent("2"); });
 
     const editButton = screen.getByTestId(`MenuItemReviewTable-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
     
     fireEvent.click(editButton);
 
-    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/ucsbmenuitemreview/edit/1'));
+    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/ucsbmenuitemreview/edit/2'));
 
   });
 
