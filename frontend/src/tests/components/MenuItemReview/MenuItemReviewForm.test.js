@@ -90,6 +90,7 @@ describe("MenuItemReviewForm tests", () => {
         await screen.findByText(/Stars is required./);
         await screen.findByText(/Reviewer Email is required/);
         await screen.findByText(/Date reviewed is required./);
+        await screen.findByText(/Comments are required./);
 
     });
 });
