@@ -1,15 +1,15 @@
 import React from 'react';
-import RestaurantForm from "main/components/Restaurants/RestaurantForm"
-import { menuItemReview } from 'fixtures/menuItemReviewFixtures';
+import MenuItemReviewForm from "main/components/MenuItemReview/MenuItemReviewForm"
+import { menuItemReviewFixtures } from 'fixtures/menuItemReviewFixtures';
 
 export default {
-    title: 'components/Restaurants/RestaurantForm',
-    component: RestaurantForm
+    title: 'components/MenuItemReview/MenuItemReviewForm',
+    component: MenuItemReviewForm
 };
 
 const Template = (args) => {
     return (
-        <RestaurantForm {...args} />
+        <MenuItemReviewForm {...args} />
     )
 };
 
@@ -26,7 +26,7 @@ Create.args = {
 export const Update = Template.bind({});
 
 Update.args = {
-    initialContents: restaurantFixtures.oneRestaurant[0],
+    initialContents: menuItemReviewFixtures.oneReview[0],
     buttonLabel: "Update",
     submitAction: (data) => {
         console.log("Submit was clicked with data: ", data); 

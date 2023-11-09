@@ -47,12 +47,9 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="itemId">itemId</Form.Label>
                         <Form.Control
-                            data-testid="itemId"
-                            id="id"
+                            id="itemId"
                             type="text"
                             {...register("itemId")}
-                            value={initialContents.itemId}
-                            disabled
                         />
                     </Form.Group>
                 </Col>
@@ -63,14 +60,16 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         <Form.Label htmlFor="stars">Stars</Form.Label>
                         <Form.Control
                             data-testid="stars"
-                            id="id"
+                            id="stars"
                             type="text"
-                            value={initialContents.stars}
+                            isInvalid={Boolean(errors.stars)}
                             {...register("stars", {
                                 required: "Stars is required."
                             })}
-                            disabled
                         />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.stars?.message}
+                        </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
             </Row>
@@ -80,13 +79,14 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         <Form.Label htmlFor="reviewerEmail">Reviewer Email</Form.Label>
                         <Form.Control
                             data-testid="reviewerEmail"
-                            id="id"
+                            id="reviewerEmail"
                             type="text"
-                            value={initialContents.reviewerEmail}
                             isInvalid={errors.reviewerEmail}
-                            {...register("reviewerEmail", {required: true, pattern: emailRegex})}
-                            disabled
+                            {...register("reviewerEmail", { required: "Reviewer Email is required", pattern: emailRegex })}
                         />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.reviewerEmail?.message}
+                        </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
             </Row>
@@ -98,31 +98,33 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             data-testid="dateReviewed"
                             id="dateReviewed"
                             type="datetime-local"
-                            isInvalid={Boolean(errors.localDateTime)}
+                            initialContents=""
+                            isInvalid={Boolean(errors.dateReviewed)}
                             {...register("dateReviewed", { required: true, pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.dateReviewed}
+                            {errors.dateReviewed && 'Date reviewed is required. '}
+                            {errors.dateReviewed?.type === 'pattern' && 'Date reviewed must be in ISO format.'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
             </Row>
             <Row>
-            <Form.Group className="mb-3" >
-                <Form.Label htmlFor="comments">Comments</Form.Label>
-                <Form.Control
-                    data-testid="comments"
-                    id="comments"
-                    type="text"
-                    isInvalid={Boolean(errors.comments)}
-                    {...register("Comments", {
-                        required: "Comments are required."
-                    })}
-                />
-                <Form.Control.Feedback type="invalid">
-                    {errors.comments?.message}
-                </Form.Control.Feedback>
-            </Form.Group>
+                <Form.Group className="mb-3" >
+                    <Form.Label htmlFor="comments">Comments</Form.Label>
+                    <Form.Control
+                        data-testid="comments"
+                        id="comments"
+                        type="text"
+                        isInvalid={Boolean(errors.comments)}
+                        {...register("Comments", {
+                            required: "Comments are required."
+                        })}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.comments?.message}
+                    </Form.Control.Feedback>
+                </Form.Group>
             </Row>
             <Row>
                 <Col>
