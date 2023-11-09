@@ -2,17 +2,17 @@
 import React from 'react';
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
-import { articlesFixtures } from "fixtures/articlesFixtures";
+import { ucsbDiningCommonsMenuItemFixtures } from "fixtures/ucsbDiningCommonsMenuItemFixtures";
 import { rest } from "msw";
 
-import ArticlesIndexPage from "main/pages/Articles/ArticlesIndexPage";
+import UCSBDiningCommonsMenuItemIndexPage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemIndexPage";
 
 export default {
-    title: 'pages/Articles/ArticlesIndexPage',
-    component: ArticlesIndexPage
+    title: 'pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemIndexPage',
+    component: UCSBDiningCommonsMenuItemIndexPage
 };
 
-const Template = () => <ArticlesIndexPage storybook={true}/>;
+const Template = () => <UCSBDiningCommonsMenuItemIndexPage storybook={true}/>;
 
 export const Empty = Template.bind({});
 Empty.parameters = {
@@ -23,7 +23,7 @@ Empty.parameters = {
         rest.get('/api/systemInfo', (_req, res, ctx) => {
             return res(ctx.json(systemInfoFixtures.showingNeither));
         }),
-        rest.get('/api/articles/all', (_req, res, ctx) => {
+        rest.get('/api/UCSBDiningCommonsMenuItem/all', (_req, res, ctx) => {
             return res(ctx.json([]));
         }),
     ]
@@ -39,8 +39,8 @@ ThreeItemsOrdinaryUser.parameters = {
         rest.get('/api/systemInfo', (_req, res, ctx) => {
             return res(ctx.json(systemInfoFixtures.showingNeither));
         }),
-        rest.get('/api/articles/all', (_req, res, ctx) => {
-            return res(ctx.json(articlesFixtures.threeArticles));
+        rest.get('/api/UCSBDiningCommonsMenuItem/all', (_req, res, ctx) => {
+            return res(ctx.json(ucsbDiningCommonsMenuItemFixtures.threeUcsbDiningCommonsMenuItems));
         }),
     ],
 }
@@ -55,10 +55,10 @@ ThreeItemsAdminUser.parameters = {
         rest.get('/api/systemInfo', (_req, res, ctx) => {
             return res(ctx.json(systemInfoFixtures.showingNeither));
         }),
-        rest.get('/api/articles/all', (_req, res, ctx) => {
-            return res(ctx.json(articlesFixtures.threeArticles));
+        rest.get('/api/UCSBDiningCommonsMenuItem/all', (_req, res, ctx) => {
+            return res(ctx.json(ucsbDiningCommonsMenuItemFixtures.threeUcsbDiningCommonsMenuItems));
         }),
-        rest.delete('/api/articles', (req, res, ctx) => {
+        rest.delete('/api/UCSBDiningCommonsMenuItem', (req, res, ctx) => {
             window.alert("DELETE: " + JSON.stringify(req.url));
             return res(ctx.status(200),ctx.json({}));
         }),

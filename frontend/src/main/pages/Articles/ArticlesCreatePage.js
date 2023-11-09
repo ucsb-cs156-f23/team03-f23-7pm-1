@@ -1,10 +1,6 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import ArticlesForm from "main/components/Articles/ArticlesForm";
-import { Navigate } from 'react-router-dom'
-import { useBackendMutation } from "main/utils/useBackend";
-import { toast } from "react-toastify";
 
-export default function ArticlesCreatePage({storybook=false}) {
+export default function ArticlesCreatePage() {
 
     const objectToAxiosParams = (article) => ({
         url: "/api/articles/post",

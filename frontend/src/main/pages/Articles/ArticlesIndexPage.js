@@ -1,10 +1,4 @@
-import React from 'react'
-import { useBackend } from 'main/utils/useBackend';
-
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import ArticlesTable from 'main/components/Articles/ArticlesTable';
-import { Button } from 'react-bootstrap';
-import { useCurrentUser , hasRole} from 'main/utils/currentUser';
 
 export default function ArticlesIndexPage() {
 
