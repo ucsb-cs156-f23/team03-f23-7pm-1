@@ -88,13 +88,12 @@ describe("ArticlesCreatePage tests", () => {
         fireEvent.change(explanationField, { target: { value: 'This article provides an in-depth look at the Mariana Trench, the deepest part of the world\'s oceans.' } });
         fireEvent.change(emailField, { target: { value: 'editor@deepseaexploration.com' } });
         fireEvent.change(dateAddedField, { target: { value: '2023-11-04T17:46' } });
-        fireEvent.click(submitButton);
 
         expect(submitButton).toBeInTheDocument();
 
         fireEvent.click(submitButton);
 
-        await waitFor(() => expect(axiosMock.history.post.length).toBe(2));
+        await waitFor(() => expect(axiosMock.history.post.length).toBe(1));
 
         expect(axiosMock.history.post[0].params).toEqual(
             {
