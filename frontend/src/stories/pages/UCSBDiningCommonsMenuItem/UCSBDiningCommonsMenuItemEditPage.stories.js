@@ -8,8 +8,8 @@ import { rest } from "msw";
 import UCSBDiningCommonsMenuItemEditPage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemEditPage";
 
 export default {
-    title: 'pages/UCSBDates/UCSBDatesEditPage',
-    component: UCSBDatesEditPage
+    title: 'pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemEditPage',
+    component: UCSBDiningCommonsMenuItemEditPage
 };
 
 const Template = () => <UCSBDiningCommonsMenuItemEditPage storybook={true}/>;
