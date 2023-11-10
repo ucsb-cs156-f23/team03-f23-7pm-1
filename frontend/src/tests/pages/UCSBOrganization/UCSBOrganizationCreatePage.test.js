@@ -91,7 +91,7 @@ describe("UCSBOrganizationCreatePage tests", () => {
         const createButton = screen.getByText("Create");
         expect(createButton).toBeInTheDocument();
 
-        fireEvent.change(orgCode, { target: { value: 'ZPR' } })
+        fireEvent.change(orgCodeInput, { target: { value: 'ZPR' } })
         fireEvent.change(orgTranslationShortInput, { target: { value: 'Zeta Phi Rho' } })
         fireEvent.change(orgTranslationInput, { target: { value: 'Zeta Phi Rho' } })
         fireEvent.change(inactiveInput, { target: { value: "false" } })
