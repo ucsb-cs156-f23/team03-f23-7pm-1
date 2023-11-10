@@ -10,7 +10,6 @@ jest.mock('react-router-dom', () => ({
     useNavigate: () => mockedNavigate
 }));
 
-
 describe("RecommendationRequestForm tests", () => {
 
     test("renders correctly", async () => {
