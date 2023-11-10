@@ -32,9 +32,9 @@ describe("HelpRequestForm tests", () => {
                 <HelpRequestForm initialContents={ucsbHelpRequestsFixtures.oneHelpRequest} />
             </Router>
         );
-        await screen.findByTestId(/HelpRequestForm-requesterEmail/);
-        expect(screen.getByText(/requesterEmail/)).toBeInTheDocument();
-        expect(screen.getByTestId(/HelpRequestForm-requesterEmail/)).toHaveValue("m@gmail.com");
+        await screen.findByTestId(/HelpRequestForm-id/);
+        expect(screen.getByText(/Id/)).toBeInTheDocument();
+        expect(screen.getByTestId(/HelpRequestForm-id/)).toHaveValue("1");
     });
 
 
@@ -48,7 +48,7 @@ describe("HelpRequestForm tests", () => {
 
         await screen.findByTestId("HelpRequestForm-requesterEmail");
         const requesterEmail = screen.getByTestId("HelpRequestForm-requesterEmail");
-        const teamId = screen.getByTestId("HelpRequestForm-tableOrBreakoutRoom");
+        const teamId = screen.getByTestId("HelpRequestForm-team");
         const tableOrBreakoutRoom = screen.getByTestId("HelpRequestForm-tableOrBreakoutRoom");
         
         const requestTime = screen.getByTestId("HelpRequestForm-requestTime");
@@ -80,7 +80,7 @@ describe("HelpRequestForm tests", () => {
 
         await screen.findByText(/requesterEmail is required./);
         expect(screen.getByText(/tableOrBreakoutRoom is required./)).toBeInTheDocument();
-        expect(screen.getByText(/teamId is required./)).toBeInTheDocument();
+        expect(screen.getByText(/team is required./)).toBeInTheDocument();
         expect(screen.getByText(/requestTime is required and must be in ISO format/)).toBeInTheDocument();
         expect(screen.getByText(/solved is required./)).toBeInTheDocument();
     });
@@ -97,7 +97,7 @@ describe("HelpRequestForm tests", () => {
         );
         await screen.findByTestId("HelpRequestForm-requesterEmail");
         const requesterEmail = screen.getByTestId("HelpRequestForm-requesterEmail");
-        const teamId = screen.getByTestId("HelpRequestForm-teamId");
+        const teamId = screen.getByTestId("HelpRequestForm-team");
         const tableOrBreakoutRoom = screen.getByTestId("HelpRequestForm-tableOrBreakoutRoom");
         
         const requestTime = screen.getByTestId("HelpRequestForm-requestTime");
