@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/Articles/ArticlesForm.js</title>
+    <title>Code coverage report for components/UCSBOrganization/UCSBOrganizationForm.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/Articles</a> ArticlesForm.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/UCSBOrganization</a> UCSBOrganizationForm.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -192,34 +192,7 @@
 <a name='L127'></a><a href='#L127'>127</a>
 <a name='L128'></a><a href='#L128'>128</a>
 <a name='L129'></a><a href='#L129'>129</a>
-<a name='L130'></a><a href='#L130'>130</a>
-<a name='L131'></a><a href='#L131'>131</a>
-<a name='L132'></a><a href='#L132'>132</a>
-<a name='L133'></a><a href='#L133'>133</a>
-<a name='L134'></a><a href='#L134'>134</a>
-<a name='L135'></a><a href='#L135'>135</a>
-<a name='L136'></a><a href='#L136'>136</a>
-<a name='L137'></a><a href='#L137'>137</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">27x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">27x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">27x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">27x</span>
+<a name='L130'></a><a href='#L130'>130</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -231,6 +204,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -335,11 +321,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Button, Form} from 'react-bootstrap';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 &nbsp;
-function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" }) {
+function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Create" }) {
+&nbsp;
+    
     // Stryker disable all
     const {
         register,
@@ -348,22 +336,23 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
     } = useForm(
         { defaultValues: initialContents || {}, }
     );
-    // Stryker restore all
 &nbsp;
+    const bool_regex = /^(true|false)$/i;
+&nbsp;
+    // Stryker restore all
+   
     const navigate = useNavigate();
 &nbsp;
-    // Stryker disable next-line Regex
-    const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
+    const testIdPrefix = "UCSBOrganizationForm";
 &nbsp;
     return (
-&nbsp;
         &lt;Form onSubmit={handleSubmit(submitAction)}&gt;
 &nbsp;
             {initialContents &amp;&amp; (
                 &lt;Form.Group className="mb-3" &gt;
                     &lt;Form.Label htmlFor="id"&gt;Id&lt;/Form.Label&gt;
                     &lt;Form.Control
-                        data-testid={"ArticlesForm-id"}
+                        data-testid={testIdPrefix + "-id"}
                         id="id"
                         type="text"
                         {...register("id")}
@@ -374,94 +363,84 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
             )}
 &nbsp;
             &lt;Form.Group className="mb-3" &gt;
-                &lt;Form.Label htmlFor="title"&gt;Title&lt;/Form.Label&gt;
+                &lt;Form.Label htmlFor="orgCode"&gt;Organization Code&lt;/Form.Label&gt;
                 &lt;Form.Control
-                    data-testid={"ArticlesForm-title"}
-                    id="title"
+                    data-testid={testIdPrefix + "-orgCode"}
+                    id="orgCode"
                     type="text"
-                    isInvalid={Boolean(errors.title)}
-                    {...register("title", {
-                        required: "Title is required."
+                    isInvalid={Boolean(errors.orgCode)}
+                    {...register("orgCode", {
+                        required: "Organization Code is required.",
+                        maxLength : {
+                            value: 30,
+                            message: "Max length 30 characters"
+                        }
                     })}
                 /&gt;
                 &lt;Form.Control.Feedback type="invalid"&gt;
-                    {errors.title?.message}
+                    {errors.orgCode?.message}
                 &lt;/Form.Control.Feedback&gt;
             &lt;/Form.Group&gt;
 &nbsp;
             &lt;Form.Group className="mb-3" &gt;
-                &lt;Form.Label htmlFor="url"&gt;Url&lt;/Form.Label&gt;
+                &lt;Form.Label htmlFor="orgTranslationShort"&gt;Organization Translation Short&lt;/Form.Label&gt;
                 &lt;Form.Control
-                    data-testid={"ArticlesForm-url"}
-                    id="url"
+                    data-testid={testIdPrefix + "-orgTranslationShort"}
+                    id="orgTranslationShort"
                     type="text"
-                    isInvalid={Boolean(errors.url)}
-                    {...register("url", {
-                        required: "URL is required."
+                    isInvalid={Boolean(errors.orgTranslationShort)}
+                    {...register("orgTranslationShort", {
+                        required: "Organization Translation Short is required."
                     })}
                 /&gt;
                 &lt;Form.Control.Feedback type="invalid"&gt;
-                    {errors.url?.message}
+                    {errors.orgTranslationShort?.message}
                 &lt;/Form.Control.Feedback&gt;
             &lt;/Form.Group&gt;
 &nbsp;
             &lt;Form.Group className="mb-3" &gt;
-                &lt;Form.Label htmlFor="explanation"&gt;Explanation&lt;/Form.Label&gt;
+                &lt;Form.Label htmlFor="orgTranslation"&gt;Organization Translation&lt;/Form.Label&gt;
                 &lt;Form.Control
-                    data-testid={"ArticlesForm-explanation"}
-                    id="explanation"
+                    data-testid={testIdPrefix + "-orgTranslation"}
+                    id="orgTranslation"
                     type="text"
-                    isInvalid={Boolean(errors.explanation)}
-                    {...register("explanation", {
-                        required: "Explanation is required."
+                    isInvalid={Boolean(errors.orgTranslation)}
+                    {...register("orgTranslation", {
+                        required: "Organization Translation is required."
                     })}
                 /&gt;
                 &lt;Form.Control.Feedback type="invalid"&gt;
-                    {errors.explanation?.message}
+                    {errors.orgTranslation?.message}
                 &lt;/Form.Control.Feedback&gt;
             &lt;/Form.Group&gt;
 &nbsp;
             &lt;Form.Group className="mb-3" &gt;
-                &lt;Form.Label htmlFor="email"&gt;Email&lt;/Form.Label&gt;
+                &lt;Form.Label htmlFor="inactive"&gt;Inactive&lt;/Form.Label&gt;
                 &lt;Form.Control
-                    data-testid={"ArticlesForm-email"}
-                    id="email"
+                    data-testid={testIdPrefix + "-inactive"}
+                    id="inactive"
                     type="text"
-                    isInvalid={Boolean(errors.email)}
-                    {...register("email", {
-                        required: "Email is required."
+                    isInvalid={Boolean(errors.inactive)}
+                    {...register("inactive", {
+                        required: "Inactive must be 'true' or 'false'.",
+                        pattern: bool_regex
                     })}
                 /&gt;
                 &lt;Form.Control.Feedback type="invalid"&gt;
-                    {errors.email?.message}
+                    {errors.inactive?.message}
                 &lt;/Form.Control.Feedback&gt;
             &lt;/Form.Group&gt;
-&nbsp;
-            &lt;Form.Group className="mb-3" &gt;
-                &lt;Form.Label htmlFor="dateAdded"&gt;Date (iso format)&lt;/Form.Label&gt;
-                &lt;Form.Control
-                    data-testid={"ArticlesForm-dateAdded"}
-                    id="dateAdded"
-                    type="datetime-local"
-                    isInvalid={Boolean(errors.dateAdded)}
-                    {...register("dateAdded", { required: true, pattern: isodate_regex })}
-                /&gt;
-                &lt;Form.Control.Feedback type="invalid"&gt;
-                    {errors.dateAdded &amp;&amp; 'DateAdded is required and must be in ISO format. '}
-                &lt;/Form.Control.Feedback&gt;
-            &lt;/Form.Group&gt;
-&nbsp;
 &nbsp;
             &lt;Button
                 type="submit"
-                data-testid={"ArticlesForm-submit"}
+                data-testid={testIdPrefix + "-submit"}
             &gt;
                 {buttonLabel}
             &lt;/Button&gt;
             &lt;Button
                 variant="Secondary"
                 onClick={() =&gt; navigate(-1)}
-                data-testid={"ArticlesForm-cancel"}
+                data-testid={testIdPrefix + "-cancel"}
             &gt;
                 Cancel
             &lt;/Button&gt;
@@ -471,7 +450,7 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
     )
 }
 &nbsp;
-export default ArticlesForm;</pre></td></tr></table></pre>
+export default UCSBOrganizationForm;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
