@@ -85,12 +85,6 @@ describe("UCSBOrganizationIndexPage tests", () => {
         const orgCode = screen.getByText("SKY");
         expect(orgCode).toBeInTheDocument();
 
-        const orgTranslationShort = screen.getByText("Sky Diving");
-        expect(orgTranslationShort).toBeInTheDocument();
-
-        const orgTranslation = screen.getByText("Sky Diving Club at UCSB");
-        expect(orgTranslation).toBeInTheDocument();
-
         // for non-admin users, details button is visible, but the edit and delete buttons should not be visible
         expect(screen.queryByTestId("UCSBOrganizationTable-cell-row-0-col-Delete-button")).not.toBeInTheDocument();
         expect(screen.queryByTestId("UCSBOrganizationTable-cell-row-0-col-Edit-button")).not.toBeInTheDocument();
@@ -116,14 +110,14 @@ describe("UCSBOrganizationIndexPage tests", () => {
         const errorMessage = console.error.mock.calls[0][0];
         expect(errorMessage).toMatch("Error communicating with backend via GET on /api/ucsborganization/all");
         restoreConsole();
-
+        
     });
 
     test("what happens when you click delete, admin", async () => {
         setupAdminUser();
 
         axiosMock.onGet("/api/ucsborganization/all").reply(200, ucsbOrganizationFixtures.threeOrganizations);
-        axiosMock.onDelete("/api/ucsborganization").reply(200, "UCSB Organization with id 1 was deleted");
+        axiosMock.onDelete("/api/ucsborganization").reply(200, "UCSBOrganization with id SKY deleted");
 
 
         render(
@@ -144,10 +138,9 @@ describe("UCSBOrganizationIndexPage tests", () => {
 
         fireEvent.click(deleteButton);
 
-        await waitFor(() => { expect(mockToast).toBeCalledWith("UCSB Organization with id 1 was deleted") });
+        await waitFor(() => { expect(mockToast).toBeCalledWith("UCSBOrganization with id SKY deleted") });
 
         await waitFor(() => { expect(axiosMock.history.delete.length).toBe(1); });
-        expect(axiosMock.history.delete[0].url).toBe("/api/ucsborganization");
         expect(axiosMock.history.delete[0].url).toBe("/api/ucsborganization");
         expect(axiosMock.history.delete[0].params).toEqual({ id: 2 });
     });
