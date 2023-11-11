@@ -126,6 +126,21 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
+                <Col>
+                    <Form.Group className="mb-3" >
+                        <Form.Label htmlFor="explanation">explanation</Form.Label>
+                        <Form.Control
+                            data-testid="HelpRequestForm-explanation"
+                            id="explanation"
+                            type="text"
+                            isInvalid={Boolean(errors.team)}
+                            {...register("explanation", { required: true})}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.team && 'explanation is required. '}
+                        </Form.Control.Feedback>
+                    </Form.Group>
+                </Col>
             </Row>
 
 
