@@ -7,8 +7,7 @@ import { hasRole } from "main/utils/currentUser";
 
 export default function MenuItemReviewTable({
     reviews,
-    currentUser,
-    testIdPrefix = "MenuItemReviewTable" }) {
+    currentUser }) {
 
     const navigate = useNavigate();
 
@@ -27,14 +26,14 @@ export default function MenuItemReviewTable({
 
     // Stryker disable next-line all : TODO try to make a good test for this
     const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
-
+    
     const columns = [
         {
             Header: 'id',
             accessor: 'id', // accessor is the "key" in the data
         },
         {
-            Header: 'itemId',
+            Header: 'ItemId',
             accessor: 'itemId',
         },
         {
@@ -56,14 +55,13 @@ export default function MenuItemReviewTable({
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
-        columns.push(ButtonColumn("Edit", "primary", editCallback, testIdPrefix));
-        columns.push(ButtonColumn("Delete", "danger", deleteCallback, testIdPrefix));
+        columns.push(ButtonColumn("Edit", "primary", editCallback, "MenuItemReviewTable"));
+        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "MenuItemReviewTable"));
     }
 
     return <OurTable
         data={reviews}
         columns={columns}
-        testid={testIdPrefix}
+        testid={"MenuItemReviewTable"}
     />;
 };
-
