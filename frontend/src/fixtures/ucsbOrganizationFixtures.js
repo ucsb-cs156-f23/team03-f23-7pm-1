@@ -16,21 +16,21 @@ const ucsbOrganizationFixtures = {
             "orgCode": "SKY	",
             "orgTranslationShort": "Sky Diving",
             "orgTranslation": "Sky Diving Club at UCSB",
-            "inactive": false            
+            "inactive": "false"            
         },
         {
             "id": 3,
             "orgCode": "KRC",
             "orgTranslationShort": "Korean Radio",
             "orgTranslation": "Korean Radio Club",
-            "inactive": false
+            "inactive": "false"
         },
         {
             "id": 4,
             "orgCode": "ZPR",
             "orgTranslationShort": "Zeta Phi Rho",
             "orgTranslation": "Zeta Phi Rho",
-            "inactive": false
+            "inactive": "false"
         }
     ]
 };
