@@ -19,7 +19,6 @@ import PlaceholderEditPage from "main/pages/Placeholder/PlaceholderEditPage";
 import HelpRequestIndexPage from "main/pages/HelpRequest/HelpRequestIndexPage";
 import HelpRequestCreatePage from "main/pages/HelpRequest/HelpRequestCreatePage";
 import HelpRequestEditPage from "main/pages/HelpRequest/HelpRequestEditPage";
-
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -65,6 +64,21 @@ function App() {
             </>
           )
         }
+    {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/helprequests" element={<HelpRequestIndexPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_ADMIN") && (
+            <>
+              <Route exact path="/helprequests/edit/:id" element={<HelpRequestEditPage />} />
+              <Route exact path="/helprequests/create" element={<HelpRequestCreatePage />} />
+            </>
+          )
+        }
          {
           hasRole(currentUser, "ROLE_USER") && (
             <>
@@ -77,21 +91,6 @@ function App() {
             <>
               <Route exact path="/placeholder/edit/:id" element={<PlaceholderEditPage />} />
               <Route exact path="/placeholder/create" element={<PlaceholderCreatePage />} />
-            </>
-          )
-        }
-        {
-          hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Route exact path="/helprequests" element={<HelpRequestIndexPage />} />
-            </>
-          )
-        }
-        {
-          hasRole(currentUser, "ROLE_ADMIN") && (
-            <>
-              <Route exact path="/helprequests/edit/:id" element={<HelpRequestEditPage />} />
-              <Route exact path="/helprequests/create" element={<HelpRequestCreatePage />} />
             </>
           )
         }
