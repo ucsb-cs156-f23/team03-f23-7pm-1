@@ -6,7 +6,7 @@ import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/HelpRequest
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function HelpRequestTable({ help, currentUser }) {
+export default function HelpRequestTable({ helprequests, currentUser }) {
 
     const navigate = useNavigate();
 
@@ -29,32 +29,28 @@ export default function HelpRequestTable({ help, currentUser }) {
 
     const columns = [
         {
-            Header: 'id',
+            Header: 'Id',
             accessor: 'id', // accessor is the "key" in the data
         },
         {
-            Header: 'requestEmail',
-            accessor: 'requestEmail',
+            Header: 'RequesterEmail',
+            accessor: 'requesterEmail',
         },
         {
-            Header: 'teamId',
-            accessor: 'teamId',
+            Header: 'Team',
+            accessor: 'team',
         },
         {
-            Header: 'tableOrBreakoutRoom',
+            Header: 'TableOrBreakoutRoom',
             accessor: 'tableOrBreakoutRoom',
         },
         {
-            Header: 'requestTime',
+            Header: 'RequestTime',
             accessor: 'requestTime',
-        },  
-        {
-            Header: 'name',
-            accessor: 'name',
         },  
 
         {
-            Header: 'solved',
+            Header: 'Solved',
             accessor: 'solved',
         }
     ];
@@ -65,7 +61,7 @@ export default function HelpRequestTable({ help, currentUser }) {
     } 
 
     return <OurTable
-        data={help}
+        data={helprequests}
         columns={columns}
         testid={"HelpRequestTable"}
     />;
