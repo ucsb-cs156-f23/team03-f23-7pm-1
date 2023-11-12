@@ -3,14 +3,6 @@ import HomePage from "main/pages/HomePage";
 import ProfilePage from "main/pages/ProfilePage";
 import AdminUsersPage from "main/pages/AdminUsersPage";
 
-import UCSBDiningCommonsMenuItemIndexPage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemIndexPage";
-import UCSBDiningCommonsMenuItemCreatePage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemCreatePage";
-import UCSBDiningCommonsMenuItemEditPage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemEditPage";
-
-import UCSBOrganizationIndexPage from "main/pages/UCSBOrganization/UCSBOrganizationIndexPage";
-import UCSBOrganizationCreatePage from "main/pages/UCSBOrganization/UCSBOrganizationCreatePage";
-import UCSBOrganizationEditPage from "main/pages/UCSBOrganization/UCSBOrganizationEditPage";
-
 import UCSBDatesIndexPage from "main/pages/UCSBDates/UCSBDatesIndexPage";
 import UCSBDatesCreatePage from "main/pages/UCSBDates/UCSBDatesCreatePage";
 import UCSBDatesEditPage from "main/pages/UCSBDates/UCSBDatesEditPage";
@@ -26,6 +18,14 @@ import ArticlesEditPage from "main/pages/Articles/ArticlesEditPage";
 import PlaceholderIndexPage from "main/pages/Placeholder/PlaceholderIndexPage";
 import PlaceholderCreatePage from "main/pages/Placeholder/PlaceholderCreatePage";
 import PlaceholderEditPage from "main/pages/Placeholder/PlaceholderEditPage";
+
+import UCSBDiningCommonsMenuItemIndexPage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemIndexPage";
+import UCSBDiningCommonsMenuItemCreatePage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemCreatePage";
+import UCSBDiningCommonsMenuItemEditPage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemEditPage";
+
+import UCSBOrganizationIndexPage from "main/pages/UCSBOrganization/UCSBOrganizationIndexPage";
+import UCSBOrganizationCreatePage from "main/pages/UCSBOrganization/UCSBOrganizationCreatePage";
+import UCSBOrganizationEditPage from "main/pages/UCSBOrganization/UCSBOrganizationEditPage";
 
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
@@ -91,22 +91,6 @@ function App() {
           )
         }
         {
-        {
-          hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Route exact path="/ucsbmenuitemreview" element={<MenuItemReviewIndexPage />} />
-            </>
-          )
-        }
-        {
-          hasRole(currentUser, "ROLE_ADMIN") && (
-            <>
-              <Route exact path="/ucsbmenuitemreview/edit/:id" element={<MenuItemReviewEditPage />} />
-              <Route exact path="/ucsbmenuitemreview/create" element={<MenuItemReviewCreatePage />} />
-            </>
-          )
-        }
-
           hasRole(currentUser, "ROLE_USER") && (
             <>
               <Route exact path="/placeholder" element={<PlaceholderIndexPage />} />
