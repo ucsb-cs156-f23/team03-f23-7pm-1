@@ -1,30 +1,33 @@
+import MenuItemReviewForm from "main/components/MenuItemReview/MenuItemReviewForm";
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import RestaurantForm from "main/components/Restaurants/RestaurantForm";
-import { Navigate } from 'react-router-dom'
 import { useBackendMutation } from "main/utils/useBackend";
+import { Navigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 
-export default function MenuItemReviewCreatePage({storybook=false}) {
+export default function MenuItemReviewCreatePage({ storybook = false }) {
 
-  const objectToAxiosParams = (restaurant) => ({
+  const objectToAxiosParams = (review) => ({
     url: "/api/ucsbmenuitemreview/post",
     method: "POST",
     params: {
-     name: review.name,
-     description: review.description
+      itemId: review.itemId,
+      stars: review.stars,
+      reviewerEmail: review.reviewerEmail,
+      dateReviewed: review.dateReviewed,
+      comments: review.comments
     }
   });
 
   const onSuccess = (review) => {
-    toast(`New review Created - id: ${review.id} name: ${review.name}`);
+    toast(`New review Created - id: ${review.id} itemId: ${review.itemId} stars: ${review.stars} reviewerEmail: ${review.reviewerEmail} dateReviewed: ${review.dateReviewed} comments: ${review.comments}`);
   }
 
   const mutation = useBackendMutation(
     objectToAxiosParams,
-     { onSuccess }, 
-     // Stryker disable next-line all : hard to set up test for caching
-     ["/api/ucsbmenuitemreview/all"] // mutation makes this key stale so that pages relying on it reload
-     );
+    { onSuccess },
+    // Stryker disable next-line all : hard to set up test for caching
+    ["/api/ucsbmenuitemreview/all"] // mutation makes this key stale so that pages relying on it reload
+  );
 
   const { isSuccess } = mutation
 
