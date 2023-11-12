@@ -173,11 +173,6 @@ describe("MenuItemReviewEditPage tests", () => {
 
             await waitFor(() => expect(mockToast).toBeCalled());
             expect(mockNavigate).toBeCalledWith({ "to": "/ucsbmenuitemreview" });
-        });
-
-
-    });
-});
 
             expect(idField).toBeInTheDocument();
             expect(idField).toHaveValue("2");
