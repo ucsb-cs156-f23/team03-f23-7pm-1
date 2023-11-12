@@ -77,16 +77,16 @@ describe("HelpRequestsEditPage tests", () => {
             axiosMock.onGet("/api/helprequests", { params: { id: 17 } }).reply(200, {
                 id: 17,
                 requesterEmail: "eif@gmail.com",
-                teamId: "29",
+                team: "29",
                 tableOrBreakoutRoom: "tab",
                 explanation: "compiling",
                 solved: "true",
                 requestTime: "2022-02-02T00:00"
             });
-            axiosMock.onPut('/api/ucsbdates').reply(200, {
-                id: 17,
+            axiosMock.onPut('/api/helprequests').reply(200, {
+                id: "17",
                 requesterEmail: "fee@gmail.com",
-                teamId: "30",
+                team: "30",
                 tableOrBreakoutRoom: "breakout",
                 explanation: "printing issue",
                 solved: "false",
@@ -155,6 +155,8 @@ describe("HelpRequestsEditPage tests", () => {
             const submitButton = screen.getByTestId("HelpRequestForm-submit");
             expect(idField).toHaveValue("17");
             expect(requesterEmailField).toHaveValue("eif@gmail.com");
+            expect(explanationField).toHaveValue("compiling");
+
             expect(teamIdField).toHaveValue("29");
             expect(requestTimeField).toHaveValue("2022-02-02T00:00");
             expect(solvedField).toHaveValue("true");
@@ -171,7 +173,7 @@ describe("HelpRequestsEditPage tests", () => {
             fireEvent.click(submitButton);
 
             await waitFor(() => expect(mockToast).toBeCalled());
-            expect(mockToast).toBeCalledWith("HelpRequest Updated - id: 17 name: Christmas Morning");
+            expect(mockToast).toBeCalledWith("HelpRequest Updated - id: 17 teamId: 30 tableOrBreakoutRoom: breakout requestTime: false solved: 2022-02-03T00:00 requesterEmail: fee@gmail.com explanation: printing issue");
             expect(mockNavigate).toBeCalledWith({ "to": "/helprequest" });
 
             expect(axiosMock.history.put.length).toBe(1); // times called
@@ -179,10 +181,12 @@ describe("HelpRequestsEditPage tests", () => {
             expect(axiosMock.history.put[0].data).toBe(JSON.stringify({
                 requesterEmail: "fee@gmail.com",
                 teamId: "30",
+                requestTime: "2022-02-03T00:00",
+                solved: "false",
+
                 tableOrBreakoutRoom: "breakout",
                 explanation: "printing issue",
-                solved: "false",
-                requestTime: "2022-02-03T00:00"
+
             })); // posted object
 
         });

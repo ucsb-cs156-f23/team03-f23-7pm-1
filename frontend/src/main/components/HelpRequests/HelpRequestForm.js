@@ -101,10 +101,10 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             id="solved"
                             type="boolean"
                             isInvalid={Boolean(errors.solved)}
-                            {...register("solved", { required: true})}
+                            {...register("solved", { required: "solved is required."})}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.solved && 'solved is required. '}
+                            {errors.solved?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -134,10 +134,10 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             id="explanation"
                             type="text"
                             isInvalid={Boolean(errors.team)}
-                            {...register("explanation", { required: true})}
+                            {...register("explanation", { required: "explanation is required."})}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.team && 'explanation is required. '}
+                            {errors.explanation?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
