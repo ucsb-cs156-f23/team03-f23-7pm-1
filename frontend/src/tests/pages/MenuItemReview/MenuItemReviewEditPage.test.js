@@ -109,7 +109,6 @@ describe("MenuItemReviewEditPage tests", () => {
             const itemIdField = screen.getByTestId("itemId");
             const starsField = screen.getByTestId("stars");
             const reviewerEmailField = screen.getByTestId("reviewerEmail");
-            const dateReviewedField = screen.getByTestId("dateReviewed");
             const commentField = screen.getByTestId("comments");
             const submitButton = screen.getByTestId("MenuItemReview-submit");
 
@@ -159,8 +158,6 @@ describe("MenuItemReviewEditPage tests", () => {
             const idField = screen.getByTestId("MenuItemReview-id");
             const itemIdField = screen.getByTestId("itemId");
             const starsField = screen.getByTestId("stars");
-            const reviewerEmailField = screen.getByTestId("reviewerEmail");
-            const dateReviewedField = screen.getByTestId("dateReviewed");
             const commentField = screen.getByTestId("comments");
             const submitButton = screen.getByTestId("MenuItemReview-submit");
 
