@@ -2,6 +2,7 @@
 
 const ucsbHelpRequestsFixtures = {
     oneHelpRequest: {
+        "id" : 1, 
         "requesterEmail": "m@gmail.com",
         "teamId": "2",
         "tableOrBreakoutRoom": "t3",
@@ -10,6 +11,7 @@ const ucsbHelpRequestsFixtures = {
     },
     threeHelpRequests: [
         {
+            "id" : 1,
             "requesterEmail": "mr@gmail.com",
             "teamId": "23",
             "tableOrBreakoutRoom": "t34",
@@ -17,6 +19,7 @@ const ucsbHelpRequestsFixtures = {
             , "solved": true
         },
         {
+            "id" : 2,
             "requesterEmail": "mra@gmail.com",
             "teamId": "234",
             "tableOrBreakoutRoom": "t345",
@@ -24,6 +27,7 @@ const ucsbHelpRequestsFixtures = {
             , "solved": false
         },
         {
+            "id" : 3,
             "requesterEmail": "mrad@gmail.com",
             "teamId": "234e",
             "tableOrBreakoutRoom": "te345",
