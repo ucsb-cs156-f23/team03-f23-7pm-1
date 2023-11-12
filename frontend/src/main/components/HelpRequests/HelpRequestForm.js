@@ -23,6 +23,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
 
     // Stryker disable next-line all
+    
  
     return (
 
@@ -112,7 +113,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="requestTime">requestTime (iso format)</Form.Label>
+                        <Form.Label htmlFor="requestTime">requestTime</Form.Label>
                         <Form.Control
                             data-testid="HelpRequestForm-requestTime"
                             id="requestTime"
