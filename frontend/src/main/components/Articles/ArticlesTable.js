@@ -2,16 +2,16 @@ import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 
 import { useBackendMutation } from "main/utils/useBackend";
-import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/HelpRequestUtils"
+import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/articlesUtils"
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function HelpRequestTable({ helprequests, currentUser }) {
+export default function UCSBDatesTable({ articles, currentUser }) {
 
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
-        navigate(`/helprequests/edit/${cell.row.values.id}`)
+        navigate(`/articles/edit/${cell.row.values.id}`)
     }
 
     // Stryker disable all : hard to test for query caching
@@ -19,7 +19,7 @@ export default function HelpRequestTable({ helprequests, currentUser }) {
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/helprequests/all"]
+        ["/api/articles/all"]
     );
     // Stryker restore all 
 
@@ -29,40 +29,39 @@ export default function HelpRequestTable({ helprequests, currentUser }) {
 
     const columns = [
         {
-            Header: 'Id',
+            Header: 'id',
             accessor: 'id', // accessor is the "key" in the data
         },
         {
-            Header: 'RequesterEmail',
-            accessor: 'requesterEmail',
+            Header: 'Title',
+            accessor: 'title',
         },
         {
-            Header: 'Team',
-            accessor: 'team',
+            Header: 'URL',
+            accessor: 'url',
         },
         {
-            Header: 'TableOrBreakoutRoom',
-            accessor: 'tableOrBreakoutRoom',
+            Header: 'Explanation',
+            accessor: 'explanation',
         },
         {
-            Header: 'RequestTime',
-            accessor: 'requestTime',
-        },  
-
+            Header: 'Email',
+            accessor: 'email',
+        },
         {
-            Header: 'Solved',
-            accessor: 'solved',
+            Header: 'Date',
+            accessor: 'dateAdded',
         }
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
-        columns.push(ButtonColumn("Edit", "primary", editCallback, "HelpRequestTable"));
-        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "HelpRequestTable"));
+        columns.push(ButtonColumn("Edit", "primary", editCallback, "ArticlesTable"));
+        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "ArticlesTable"));
     } 
 
     return <OurTable
-        data={helprequests}
+        data={articles}
         columns={columns}
-        testid={"HelpRequestTable"}
+        testid={"ArticlesTable"}
     />;
 };
