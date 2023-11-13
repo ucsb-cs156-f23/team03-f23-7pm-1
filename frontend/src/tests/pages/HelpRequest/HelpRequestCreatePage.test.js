@@ -1,4 +1,6 @@
+
 import { render, waitFor, fireEvent, screen } from "@testing-library/react";
+
 import HelpRequestCreatePage from "main/pages/HelpRequest/HelpRequestCreatePage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
@@ -7,6 +9,7 @@ import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
+
 
 const mockToast = jest.fn();
 jest.mock('react-toastify', () => {
@@ -33,10 +36,12 @@ describe("HelpRequestsCreatePage tests", () => {
     const axiosMock =new AxiosMockAdapter(axios);
 
     beforeEach(() => {
+
         axiosMock.reset();
         axiosMock.resetHistory();
         axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
         axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
+
     });
 
     test("renders without crashing", () => {
@@ -71,6 +76,7 @@ describe("HelpRequestsCreatePage tests", () => {
 
         axiosMock.onPost("/api/helprequests/post").reply( 202, helpRequest );
 
+
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
@@ -78,6 +84,7 @@ describe("HelpRequestsCreatePage tests", () => {
                 </MemoryRouter>
             </QueryClientProvider>
         );
+
 
         await waitFor(() => {
             expect(screen.getByTestId("HelpRequestForm-requesterEmail")).toBeInTheDocument();
@@ -119,6 +126,7 @@ describe("HelpRequestsCreatePage tests", () => {
         expect(mockToast).toBeCalledWith("New helpRequest Created - id: 17 teamId: 29 tableOrBreakoutRoom: tab requestTime: true solved: 2022-02-02T00:00 requesterEmail: eif@gmail.com explanation: compiling");
         expect(mockNavigate).toBeCalledWith({ "to": "/helprequest" });
     });
+
 
 
 });

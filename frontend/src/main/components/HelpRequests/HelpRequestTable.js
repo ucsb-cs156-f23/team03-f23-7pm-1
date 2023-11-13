@@ -53,11 +53,13 @@ export default function HelpRequestTable({ helprequests, currentUser }) {
             Header: 'Solved',
             accessor: 'solved',
         }
+
         ,
         {
             Header: 'Explanation',
             accessor: 'explanation',
         }
+
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
@@ -70,4 +72,6 @@ export default function HelpRequestTable({ helprequests, currentUser }) {
         columns={columns}
         testid={"HelpRequestTable"}
     />;
+
 };
+
