@@ -101,10 +101,10 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             id="solved"
                             type="boolean"
                             isInvalid={Boolean(errors.solved)}
-                            {...register("solved", { required: true})}
+                            {...register("solved", { required: "solved is required."})}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.solved && 'solved is required. '}
+                            {errors.solved?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -123,6 +123,21 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.requestTime && 'requestTime is required and must be in ISO format'}
+                        </Form.Control.Feedback>
+                    </Form.Group>
+                </Col>
+                <Col>
+                    <Form.Group className="mb-3" >
+                        <Form.Label htmlFor="explanation">explanation</Form.Label>
+                        <Form.Control
+                            data-testid="HelpRequestForm-explanation"
+                            id="explanation"
+                            type="text"
+                            isInvalid={Boolean(errors.team)}
+                            {...register("explanation", { required: "explanation is required."})}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.explanation?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>

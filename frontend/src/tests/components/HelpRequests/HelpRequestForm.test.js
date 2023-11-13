@@ -53,11 +53,13 @@ describe("HelpRequestForm tests", () => {
         
         const requestTime = screen.getByTestId("HelpRequestForm-requestTime");
         const solved = screen.getByTestId("HelpRequestForm-solved");
+        const explanation = screen.getByTestId("HelpRequestForm-explanation");
         const submitButton = screen.getByTestId("HelpRequestForm-submit");
         
         fireEvent.change(requesterEmail, { target: { value: 'm@gmail.com' } });
         fireEvent.change(tableOrBreakoutRoom, { target: { value: 't2' } });
         fireEvent.change(teamId, { target: { value: '2' } });
+        fireEvent.change(explanation, { target: { value: 'bad-inp' } });
         fireEvent.change(requestTime, { target: { value: 'bad-input' } });
         fireEvent.change(solved, { target: { value: true} });
         
@@ -83,6 +85,7 @@ describe("HelpRequestForm tests", () => {
         expect(screen.getByText(/team is required./)).toBeInTheDocument();
         expect(screen.getByText(/requestTime is required and must be in ISO format/)).toBeInTheDocument();
         expect(screen.getByText(/solved is required./)).toBeInTheDocument();
+        expect(screen.getByText(/explanation is required./)).toBeInTheDocument();
     });
 
     test("No Error messsages on good input", async () => {
@@ -102,7 +105,7 @@ describe("HelpRequestForm tests", () => {
         
         const requestTime = screen.getByTestId("HelpRequestForm-requestTime");
         const solved = screen.getByTestId("HelpRequestForm-solved");
-        
+        const explanation = screen.getByTestId("HelpRequestForm-explanation");
         const submitButton = screen.getByTestId("HelpRequestForm-submit");
         
         fireEvent.change(requesterEmail, { target: { value: 'm@gmail.com' } });
@@ -110,6 +113,7 @@ describe("HelpRequestForm tests", () => {
         fireEvent.change(teamId, { target: { value: '2' } });
         fireEvent.change(requestTime, { target: { value: '2023-11-04T17:46:15.228' } });
         fireEvent.change(solved, { target: { value: false} });
+        fireEvent.change(explanation, { target: { value: "Syntax issue"} });
         
         fireEvent.click(submitButton);
 
@@ -121,7 +125,7 @@ describe("HelpRequestForm tests", () => {
         expect(screen.queryByText(/teamId is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/requestTime is required and must be in ISO format/)).not.toBeInTheDocument();
         expect(screen.queryByText(/solved is required./)).not.toBeInTheDocument();
-
+        expect(screen.queryByText(/explanation is required./)).not.toBeInTheDocument();
 
     });
 
