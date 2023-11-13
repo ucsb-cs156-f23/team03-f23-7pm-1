@@ -115,9 +115,9 @@ describe("MenuItemReviewEditPage tests", () => {
             expect(idField).toBeInTheDocument();
             expect(idField).toHaveValue("2");
             expect(itemIdField).toBeInTheDocument();
-            expect(itemIdField).toHaveValue("5");
+            expect(itemIdField).toHaveValue(5);
             expect(starsField).toBeInTheDocument();
-            expect(starsField).toHaveValue("4");
+            expect(starsField).toHaveValue(4);
 
             expect(submitButton).toHaveTextContent("Update");
 
@@ -162,8 +162,8 @@ describe("MenuItemReviewEditPage tests", () => {
             const submitButton = screen.getByTestId("MenuItemReview-submit");
 
             expect(idField).toHaveValue("2");
-            expect(itemIdField).toHaveValue("5");
-            expect(starsField).toHaveValue("4");
+            expect(itemIdField).toHaveValue(5);
+            expect(starsField).toHaveValue(4);
             expect(submitButton).toBeInTheDocument();
 
             fireEvent.change(commentField, { target: { value: 'comment' } })
