@@ -16,7 +16,7 @@ import lombok.Builder;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "Help Requests")
+@Entity(name = "helprequests")
 public class HelpRequests {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
