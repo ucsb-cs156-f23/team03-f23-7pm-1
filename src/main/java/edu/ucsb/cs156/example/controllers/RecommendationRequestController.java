@@ -48,7 +48,7 @@ public class RecommendationRequestController extends ApiController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/post")
     public RecommendationRequest postRecommendationRequest(
-            @Parameter(name="requestorEmail") @RequestParam String requestorEmail,
+            @Parameter(name="requesterEmail") @RequestParam String requesterEmail,
             @Parameter(name="professorEmail") @RequestParam String professorEmail,
             @Parameter(name="explanation") @RequestParam String explanation,
             @Parameter(name="dateRequested", description="in iso format, e.g. YYYY-mm-ddTHH:MM:SS; see https://en.wikipedia.org/wiki/ISO_8601") @RequestParam("dateRequested") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateRequested,
@@ -59,7 +59,7 @@ public class RecommendationRequestController extends ApiController {
         log.info("dateRequested={} dateNeeded={}", dateRequested, dateNeeded);
 
         RecommendationRequest recRequest = new RecommendationRequest();
-        recRequest.setRequesterEmail(requestorEmail);
+        recRequest.setRequesterEmail(requesterEmail);
         recRequest.setProfessorEmail(professorEmail);
         recRequest.setExplanation(explanation);
         recRequest.setDateRequested(dateRequested);

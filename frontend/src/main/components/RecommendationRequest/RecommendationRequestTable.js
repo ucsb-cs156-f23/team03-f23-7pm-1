@@ -11,7 +11,7 @@ export default function RecommendationRequestTable({ requests, currentUser }) {
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
-        navigate(`/RecommendationRequests/edit/${cell.row.values.id}`)
+        navigate(`/recommendationrequests/edit/${cell.row.values.id}`)
     }
 
     // Stryker disable all : hard to test for query caching
@@ -19,7 +19,7 @@ export default function RecommendationRequestTable({ requests, currentUser }) {
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/RecommendationRequests/all"]
+        ["/api/recommendationrequests/all"]
     );
     // Stryker restore all 
 
