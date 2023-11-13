@@ -75,9 +75,9 @@ describe("UCSBOrganizationIndexPage tests", () => {
             </QueryClientProvider>
         );
 
-        await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2"); });
-        expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
-        expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("4");
+        await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-orgCode`)).toHaveTextContent("SKY"); });
+        expect(screen.getByTestId(`${testId}-cell-row-1-col-orgCode`)).toHaveTextContent("KRC");
+        expect(screen.getByTestId(`${testId}-cell-row-2-col-orgCode`)).toHaveTextContent("ZPR");
 
         const createUCSBOrganizationButton = screen.queryByText("Create UCSB Organization");
         expect(createUCSBOrganizationButton).not.toBeInTheDocument();
@@ -128,9 +128,9 @@ describe("UCSBOrganizationIndexPage tests", () => {
             </QueryClientProvider>
         );
 
-        await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toBeInTheDocument(); });
+        await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-orgCode`)).toBeInTheDocument(); });
 
-        expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
+        expect(screen.getByTestId(`${testId}-cell-row-0-col-orgCode`)).toHaveTextContent("SKY");
 
 
         const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
@@ -142,7 +142,7 @@ describe("UCSBOrganizationIndexPage tests", () => {
 
         await waitFor(() => { expect(axiosMock.history.delete.length).toBe(1); });
         expect(axiosMock.history.delete[0].url).toBe("/api/ucsborganization");
-        expect(axiosMock.history.delete[0].params).toEqual({ id: 2 });
+        expect(axiosMock.history.delete[0].params).toEqual({ orgCode: "SKY" });
     });
 
 });

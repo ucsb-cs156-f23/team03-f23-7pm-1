@@ -25,7 +25,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
     return (
         <Form onSubmit={handleSubmit(submitAction)}>
 
-            {initialContents && (
+            {/* {initialContents && (
                 <Form.Group className="mb-3" >
                     <Form.Label htmlFor="id">Id</Form.Label>
                     <Form.Control
@@ -37,7 +37,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                         disabled
                     />
                 </Form.Group>
-            )}
+            )} */}
 
             <Form.Group className="mb-3" >
                 <Form.Label htmlFor="orgCode">Organization Code</Form.Label>

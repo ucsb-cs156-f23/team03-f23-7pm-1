@@ -13,7 +13,7 @@ const ucsbOrganizationFixtures = {
     [
         {
             "id": 2,
-            "orgCode": "SKY	",
+            "orgCode": "SKY",
             "orgTranslationShort": "Sky Diving",
             "orgTranslation": "Sky Diving Club at UCSB",
             "inactive": "false"            

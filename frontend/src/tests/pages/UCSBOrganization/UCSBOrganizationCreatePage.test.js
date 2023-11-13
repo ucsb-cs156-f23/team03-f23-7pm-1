@@ -55,7 +55,6 @@ describe("UCSBOrganizationCreatePage tests", () => {
 
         const queryClient = new QueryClient();
         const ucsbOrganization = {
-            id: 3,
             orgCode: "ZPR",
             orgTranslationShort: "Zeta Phi Rho",
             orgTranslation: "Zeta Phi Rho",
@@ -107,7 +106,7 @@ describe("UCSBOrganizationCreatePage tests", () => {
         });
 
         // assert - check that the toast was called with the expected message
-        expect(mockToast).toBeCalledWith("New UCSB Organization Created - id: 3 orgCode: ZPR");
+        expect(mockToast).toBeCalledWith("New UCSB Organization Created - orgCode: ZPR");
         expect(mockNavigate).toBeCalledWith({ "to": "/ucsborganization" });
 
     });
