@@ -71,7 +71,8 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             isInvalid={Boolean(errors.stars)}
                             {...register("stars", {
                                 required: "Stars is required.",
-                                valueAsNumber: "Must be a number"
+                                valueAsNumber: "Must be a number",
+                                max: 5,
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
