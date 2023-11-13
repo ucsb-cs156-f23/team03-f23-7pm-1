@@ -32,7 +32,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>15/15</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -217,7 +217,21 @@
 <a name='L152'></a><a href='#L152'>152</a>
 <a name='L153'></a><a href='#L153'>153</a>
 <a name='L154'></a><a href='#L154'>154</a>
-<a name='L155'></a><a href='#L155'>155</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -228,23 +242,38 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -370,7 +399,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Button, Form, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
@@ -474,10 +502,10 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             id="solved"
                             type="boolean"
                             isInvalid={Boolean(errors.solved)}
-                            {...register("solved", { required: true})}
+                            {...register("solved", { required: "solved is required."})}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.solved &amp;&amp; 'solved is required. '}
+                            {errors.solved?.message}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
                 &lt;/Col&gt;
@@ -496,6 +524,21 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
                             {errors.requestTime &amp;&amp; 'requestTime is required and must be in ISO format'}
+                        &lt;/Form.Control.Feedback&gt;
+                    &lt;/Form.Group&gt;
+                &lt;/Col&gt;
+                &lt;Col&gt;
+                    &lt;Form.Group className="mb-3" &gt;
+                        &lt;Form.Label htmlFor="explanation"&gt;explanation&lt;/Form.Label&gt;
+                        &lt;Form.Control
+                            data-testid="HelpRequestForm-explanation"
+                            id="explanation"
+                            type="text"
+                            isInvalid={Boolean(errors.team)}
+                            {...register("explanation", { required: "explanation is required."})}
+                        /&gt;
+                        &lt;Form.Control.Feedback type="invalid"&gt;
+                            {errors.explanation?.message}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
                 &lt;/Col&gt;
@@ -524,15 +567,14 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
     )
 }
 &nbsp;
-export default HelpRequestForm;
-&nbsp;</pre></td></tr></table></pre>
+export default HelpRequestForm;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sun Nov 12 2023 20:18:40 GMT-0800 (Pacific Standard Time)
+                at Mon Nov 13 2023 06:39:09 GMT-0800 (Pacific Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
