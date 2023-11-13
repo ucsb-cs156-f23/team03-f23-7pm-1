@@ -1,15 +1,14 @@
 import { render, screen } from "@testing-library/react";
+import HelpRequestCreatePage from "main/pages/HelpRequest/HelpRequestCreatePage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 
-import axios from "axios";
-import AxiosMockAdapter from "axios-mock-adapter";
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
-import MenuItemReviewIndexPage from "main/pages/MenuItemReview/MenuItemReviewIndexPage";
+import axios from "axios";
+import AxiosMockAdapter from "axios-mock-adapter";
 
-
-describe("MenuItemReviewIndexPage tests", () => {
+describe("HelpRequestCreatePage tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
 
@@ -25,21 +24,20 @@ describe("MenuItemReviewIndexPage tests", () => {
         // arrange
 
         setupUserOnly();
-
+       
         // act
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <MenuItemReviewIndexPage />
+                    <HelpRequestCreatePage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
 
         // assert
-        expect(screen.getByText("Index page not yet implemented")).toBeInTheDocument();
-        expect(screen.getByText("Create")).toBeInTheDocument();
-        expect(screen.getByText("Edit")).toBeInTheDocument();
+        expect(screen.getByText("Create page not yet implemented")).toBeInTheDocument();
     });
 
 });
+
 
