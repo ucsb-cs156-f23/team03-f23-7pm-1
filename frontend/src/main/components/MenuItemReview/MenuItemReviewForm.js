@@ -73,6 +73,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                                 required: "Stars is required.",
                                 valueAsNumber: "Must be a number",
                                 max: 5,
+                                min: 0
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
