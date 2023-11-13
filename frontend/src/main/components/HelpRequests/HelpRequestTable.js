@@ -71,3 +71,4 @@ export default function HelpRequestTable({ helprequests, currentUser }) {
         testid={"HelpRequestTable"}
     />;
 };
+
