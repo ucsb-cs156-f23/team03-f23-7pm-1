@@ -1,15 +1,15 @@
 import { render, screen } from "@testing-library/react";
+import HelpRequestIndexPage from "main/pages/HelpRequest/HelpRequestIndexPage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 
-import axios from "axios";
-import AxiosMockAdapter from "axios-mock-adapter";
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
-import MenuItemReviewIndexPage from "main/pages/MenuItemReview/MenuItemReviewIndexPage";
+import axios from "axios";
+import AxiosMockAdapter from "axios-mock-adapter";
 
 
-describe("MenuItemReviewIndexPage tests", () => {
+describe("HelpRequestIndexPage tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
 
@@ -30,7 +30,7 @@ describe("MenuItemReviewIndexPage tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <MenuItemReviewIndexPage />
+                    <HelpRequestIndexPage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
@@ -42,4 +42,5 @@ describe("MenuItemReviewIndexPage tests", () => {
     });
 
 });
+
 
