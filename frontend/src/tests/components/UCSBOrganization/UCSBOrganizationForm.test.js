@@ -16,7 +16,7 @@ jest.mock('react-router-dom', () => ({
 describe("UCSBOrganizationForm tests", () => {
     const queryClient = new QueryClient();
 
-    const expectedHeaders = ["Organization Code", "Organization Translation Short", "Organization Translation", "Inactive"];
+    const expectedHeaders = ["Organization Translation Short", "Organization Translation", "Inactive"];
     const testId = "UCSBOrganizationForm";
 
     test("renders correctly with no initialContents", async () => {
@@ -87,13 +87,12 @@ describe("UCSBOrganizationForm tests", () => {
         const submitButton = screen.getByText(/Create/);
         fireEvent.click(submitButton);
 
-        await screen.findByText(/Organization Code is required/);
-        expect(screen.getByText(/Organization Translation Short is required/)).toBeInTheDocument();
+        await screen.findByText(/Organization Translation Short is required/);
         expect(screen.getByText(/Organization Translation is required/)).toBeInTheDocument();
         expect(screen.getByText(/Inactive must be 'true' or 'false'/)).toBeInTheDocument();
 
 
-        const orgCodeInput = screen.getByTestId(`${testId}-orgCode`);
+        const orgCodeInput = screen.getByTestId(`${testId}-orgTranslationShort`);
         fireEvent.change(orgCodeInput, { target: { value: "a".repeat(31) } });
         fireEvent.click(submitButton);
 
@@ -109,7 +108,7 @@ describe("UCSBOrganizationForm tests", () => {
             expect(screen.getByText(/Inactive must be 'true' or 'false'./)).toBeInTheDocument();
         });
 
-        const suffixes = ["-orgCode", "-orgTranslationShort", "-orgTranslation", "-inactive", "-submit", "-cancel"];
+        const suffixes = ["-orgTranslationShort", "-orgTranslation", "-inactive", "-submit", "-cancel"];
 
         suffixes.forEach((id) => {
             expect(screen.getByTestId(`UCSBOrganizationForm${id}`)).toBeInTheDocument();
