@@ -1,9 +1,9 @@
 import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 
-import { useBackendMutation } from "main/utils/useBackend";
 import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/HelpRequestUtils"
 import { useNavigate } from "react-router-dom";
+import { useBackendMutation } from "main/utils/useBackend";
 import { hasRole } from "main/utils/currentUser";
 
 export default function HelpRequestTable({ helprequests, currentUser }) {
@@ -11,7 +11,7 @@ export default function HelpRequestTable({ helprequests, currentUser }) {
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
-        navigate(`/helprequests/edit/${cell.row.values.id}`)
+        navigate(`/helprequest/edit/${cell.row.values.id}`)
     }
 
     // Stryker disable all : hard to test for query caching
@@ -37,8 +37,8 @@ export default function HelpRequestTable({ helprequests, currentUser }) {
             accessor: 'requesterEmail',
         },
         {
-            Header: 'Team',
-            accessor: 'team',
+            Header: 'Team', accessor : 'teamId',
+
         },
         {
             Header: 'TableOrBreakoutRoom',
@@ -52,6 +52,7 @@ export default function HelpRequestTable({ helprequests, currentUser }) {
         {
             Header: 'Solved',
             accessor: 'solved',
+            Cell: ({ value }) => String(value),
         }
         ,
         {

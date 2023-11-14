@@ -133,7 +133,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             data-testid="HelpRequestForm-explanation"
                             id="explanation"
                             type="text"
-                            isInvalid={Boolean(errors.team)}
+                            isInvalid={Boolean(errors.explanation)}
                             {...register("explanation", { required: "explanation is required."})}
                         />
                         <Form.Control.Feedback type="invalid">

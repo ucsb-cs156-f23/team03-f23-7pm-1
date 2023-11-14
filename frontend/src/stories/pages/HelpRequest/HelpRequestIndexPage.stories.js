@@ -24,7 +24,7 @@ Empty.parameters = {
         rest.get('/api/systemInfo', (_req, res, ctx) => {
             return res(ctx.json(systemInfoFixtures.showingNeither));
         }),
-        rest.get('/api/ucsbdates/all', (_req, res, ctx) => {
+        rest.get('/api/helprequests/all', (_req, res, ctx) => {
             return res(ctx.json([]));
         }),
     ]
@@ -56,7 +56,7 @@ ThreeItemsAdminUser.parameters = {
         rest.get('/api/systemInfo', (_req, res, ctx) => {
             return res(ctx.json(systemInfoFixtures.showingNeither));
         }),
-        rest.get('/api/ucsbdates/all', (_req, res, ctx) => {
+        rest.get('/api/helprequests/all', (_req, res, ctx) => {
             return res(ctx.json(ucsbHelpRequestsFixtures.threeHelpRequests));
         }),
         rest.delete('/api/helprequests', (req, res, ctx) => {

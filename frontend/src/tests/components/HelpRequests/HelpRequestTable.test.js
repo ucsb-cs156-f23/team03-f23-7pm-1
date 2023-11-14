@@ -15,6 +15,32 @@ jest.mock('react-router-dom', () => ({
 
 describe("UserTable tests", () => {
   const queryClient = new QueryClient();
+  test("renders empty table correctly", () => {
+    
+    // arrange
+    const currentUser = currentUserFixtures.adminUser;
+    const expectedHeaders = ["Id" , "RequesterEmail" , "TableOrBreakoutRoom","Team","Solved","RequestTime" , "Explanation"];
+    const expectedFields = ["id" , "requesterEmail" , "tableOrBreakoutRoom","team","solved","requestTime","explanation" ];
+    const testId = "HelpRequestTable";
+
+    // act
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <HelpRequestTable helprequests={[]} currentUser={currentUser} />
+        </MemoryRouter>
+      </QueryClientProvider>
+    );
+    expectedHeaders.forEach((headerText) => {
+        const header = screen.getByText(headerText);
+        expect(header).toBeInTheDocument();
+      });
+  
+      expectedFields.forEach((field) => {
+        const fieldElement = screen.queryByTestId(`${testId}-cell-row-0-col-${field}`);
+        expect(fieldElement).not.toBeInTheDocument();
+      });
+    });
 
   test("Has the expected column headers and content for ordinary user", () => {
 
@@ -36,7 +62,7 @@ describe("UserTable tests", () => {
     // , "solved": true
 
     const expectedHeaders = ["Id" , "RequesterEmail" , "TableOrBreakoutRoom","Team","Solved","RequestTime" , "Explanation"];
-    const expectedFields = ["id" , "requesterEmail" , "tableOrBreakoutRoom","team","solved","requestTime","explanation" ];
+    const expectedFields = ["id" , "requesterEmail" , "tableOrBreakoutRoom","teamId","solved","requestTime","explanation" ];
     const testId = "HelpRequestTable";
 
     expectedHeaders.forEach((headerText) => {
@@ -74,7 +100,7 @@ describe("UserTable tests", () => {
     );
 
     const expectedHeaders = ["Id" , "RequesterEmail" , "TableOrBreakoutRoom","Team","Solved","RequestTime", "Explanation"];
-    const expectedFields = ["id" , "requesterEmail" , "tableOrBreakoutRoom","team","solved","requestTime" , "explanation"];
+    const expectedFields = ["id" , "requesterEmail" , "tableOrBreakoutRoom","teamId","solved","requestTime" , "explanation"];
     const testId = "HelpRequestTable";
 
     expectedHeaders.forEach((headerText) => {
@@ -120,7 +146,7 @@ describe("UserTable tests", () => {
     
     fireEvent.click(editButton);
 
-    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/helprequests/edit/1'));
+    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/helprequest/edit/1'));
 
   });
   test("Delete button calls delete callback", async () => {
