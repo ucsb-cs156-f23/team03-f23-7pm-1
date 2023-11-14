@@ -25,21 +25,6 @@ after completing your own.
 * node: 16.20.0
 See [docs/versions.md](docs/versions.md) for more information on upgrading versions.
 
-# Brief overview of starter code 
-
-TODO: remove this header and content of this section before submitting.
-However leave the section `# Overview of application` and its content 
-intact.
-
-The starter code here starts with a base similar to `team02`, but with 
-some extra frontend code on top of the of backend CRUD operations
-that were present in `team02`.
-
-You can use this code as a basis to:
-* Add the backend code from team02 *in stages* as suggested in the issues (doing that in "one giant pull request" is *not recommended) 
-* Add a frontend on top of the backend CRUD features you added in team02, using the existing
-  code as examples.
-
 # Overview of application
 
 When complete, this application will have the following features:
