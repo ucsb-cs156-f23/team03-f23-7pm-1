@@ -24,7 +24,7 @@ describe("UCSBOrganizationTable tests", () => {
     // arrange
     const currentUser = currentUserFixtures.adminUser;
 
-    // act
+    // act //
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
