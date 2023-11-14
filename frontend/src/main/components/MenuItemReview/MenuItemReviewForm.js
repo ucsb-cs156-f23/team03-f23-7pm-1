@@ -51,8 +51,11 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         <Form.Control
                             data-testid="itemId"
                             id="itemId"
-                            type="text"
-                            {...register("itemId")}
+                            type="number"
+                            isInvalid={Boolean(errors.itemId)}
+                            {...register("itemId", {
+                                valueAsNumber: "Must be a number",
+                            })}
                         />
                     </Form.Group>
                 </Col>
@@ -64,10 +67,13 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         <Form.Control
                             data-testid="stars"
                             id="stars"
-                            type="text"
+                            type="number"
                             isInvalid={Boolean(errors.stars)}
                             {...register("stars", {
-                                required: "Stars is required."
+                                required: "Stars is required.",
+                                valueAsNumber: "Must be a number",
+                                max: 5,
+                                min: 0
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
