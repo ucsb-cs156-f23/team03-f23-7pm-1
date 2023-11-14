@@ -1,9 +1,9 @@
 import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 
-import { useBackendMutation } from "main/utils/useBackend";
 import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/HelpRequestUtils"
 import { useNavigate } from "react-router-dom";
+import { useBackendMutation } from "main/utils/useBackend";
 import { hasRole } from "main/utils/currentUser";
 
 export default function HelpRequestTable({ helprequests, currentUser }) {
@@ -37,8 +37,8 @@ export default function HelpRequestTable({ helprequests, currentUser }) {
             accessor: 'requesterEmail',
         },
         {
-            Header: 'Team',
-            accessor: (row, _row_index) => (row.teamId),
+            Header: 'Team', accessor : 'teamId',
+
         },
         {
             Header: 'TableOrBreakoutRoom',
@@ -51,7 +51,8 @@ export default function HelpRequestTable({ helprequests, currentUser }) {
 
         {
             Header: 'Solved',
-            accessor: (row, _rowIndex) => String(row.solved),
+            accessor: 'solved',
+            Cell: ({ value }) => String(value),
         }
         ,
         {
