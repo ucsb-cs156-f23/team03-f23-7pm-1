@@ -17,7 +17,7 @@ export default function UCSBOrganizationEditPage({storybook=false}) {
                 url: `/api/ucsborganization`,
                 params: {
                     orgCode
-                }
+                },
             }
         );
 
