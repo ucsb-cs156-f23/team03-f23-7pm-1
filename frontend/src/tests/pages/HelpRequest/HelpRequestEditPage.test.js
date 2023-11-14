@@ -77,19 +77,19 @@ describe("HelpRequestsEditPage tests", () => {
             axiosMock.onGet("/api/helprequests", { params: { id: 17 } }).reply(200, {
                 id: 17,
                 requesterEmail: "eif@gmail.com",
-                team: "29",
+                teamId: "29",
                 tableOrBreakoutRoom: "tab",
                 explanation: "compiling",
-                solved: "true",
+                solved: true,
                 requestTime: "2022-02-02T00:00"
             });
             axiosMock.onPut('/api/helprequests').reply(200, {
                 id: "17",
                 requesterEmail: "fee@gmail.com",
-                team: "30",
+                teamId: "30",
                 tableOrBreakoutRoom: "breakout",
                 explanation: "printing issue",
-                solved: "false",
+                solved: false,
                 requestTime: "2022-02-03T00:00"
             });
         });
@@ -173,7 +173,7 @@ describe("HelpRequestsEditPage tests", () => {
             fireEvent.click(submitButton);
 
             await waitFor(() => expect(mockToast).toBeCalled());
-            expect(mockToast).toBeCalledWith("HelpRequest Updated - id: 17 teamId: 30 tableOrBreakoutRoom: breakout requestTime: false solved: 2022-02-03T00:00 requesterEmail: fee@gmail.com explanation: printing issue");
+            expect(mockToast).toBeCalledWith("HelpRequest Updated - id: 17 teamId: 30 tableOrBreakoutRoom: breakout requestTime: 2022-02-03T00:00 solved: false requesterEmail: fee@gmail.com explanation: printing issue");
             expect(mockNavigate).toBeCalledWith({ "to": "/helprequest" });
 
             expect(axiosMock.history.put.length).toBe(1); // times called

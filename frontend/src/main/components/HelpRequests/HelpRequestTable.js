@@ -11,7 +11,7 @@ export default function HelpRequestTable({ helprequests, currentUser }) {
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
-        navigate(`/helprequests/edit/${cell.row.values.id}`)
+        navigate(`/helprequest/edit/${cell.row.values.id}`)
     }
 
     // Stryker disable all : hard to test for query caching
@@ -38,7 +38,7 @@ export default function HelpRequestTable({ helprequests, currentUser }) {
         },
         {
             Header: 'Team',
-            accessor: 'team',
+            accessor: (_rowIndex , row) => (row.team),
         },
         {
             Header: 'TableOrBreakoutRoom',
@@ -51,7 +51,7 @@ export default function HelpRequestTable({ helprequests, currentUser }) {
 
         {
             Header: 'Solved',
-            accessor: 'solved',
+            accessor: (_rowIndex , row) => String(row.solved),
         }
         ,
         {

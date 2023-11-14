@@ -116,7 +116,7 @@ describe("HelpRequestsCreatePage tests", () => {
                 requestTime: "2022-02-02T00:00"
             });
 
-        expect(mockToast).toBeCalledWith("New helpRequest Created - id: 17 teamId: 29 tableOrBreakoutRoom: tab requestTime: true solved: 2022-02-02T00:00 requesterEmail: eif@gmail.com explanation: compiling");
+        expect(mockToast).toBeCalledWith("New helpRequest Created - id: 17 teamId: 29 tableOrBreakoutRoom: tab requestTime: 2022-02-02T00:00 solved: true requesterEmail: eif@gmail.com explanation: compiling");
         expect(mockNavigate).toBeCalledWith({ "to": "/helprequest" });
     });
 
