@@ -38,7 +38,7 @@ export default function HelpRequestTable({ helprequests, currentUser }) {
         },
         {
             Header: 'Team',
-            accessor: (_rowIndex , row) => (row.team),
+            accessor: (row, _row_index) => (row.teamId),
         },
         {
             Header: 'TableOrBreakoutRoom',
@@ -51,7 +51,7 @@ export default function HelpRequestTable({ helprequests, currentUser }) {
 
         {
             Header: 'Solved',
-            accessor: (_rowIndex , row) => String(row.solved),
+            accessor: (row, _rowIndex) => String(row.solved),
         }
         ,
         {

@@ -77,7 +77,7 @@ describe("HelpRequestsEditPage tests", () => {
             axiosMock.onGet("/api/helprequests", { params: { id: 17 } }).reply(200, {
                 id: 17,
                 requesterEmail: "eif@gmail.com",
-                teamId: "29",
+                team: "29",
                 tableOrBreakoutRoom: "tab",
                 explanation: "compiling",
                 solved: true,
@@ -86,7 +86,7 @@ describe("HelpRequestsEditPage tests", () => {
             axiosMock.onPut('/api/helprequests').reply(200, {
                 id: "17",
                 requesterEmail: "fee@gmail.com",
-                teamId: "30",
+                team: "30",
                 tableOrBreakoutRoom: "breakout",
                 explanation: "printing issue",
                 solved: false,
