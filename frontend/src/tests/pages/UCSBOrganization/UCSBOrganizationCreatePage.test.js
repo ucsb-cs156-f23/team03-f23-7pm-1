@@ -72,8 +72,11 @@ describe("UCSBOrganizationCreatePage tests", () => {
         )
 
         await waitFor(() => {
-            expect(screen.getByLabelText("Organization Translation Short")).toBeInTheDocument();
+            expect(screen.getByLabelText("Organization Code")).toBeInTheDocument();
         });
+        
+        const orgCodeInput = screen.getByLabelText("Organization Code");
+        expect(orgCodeInput).toBeInTheDocument();
 
         const orgTranslationShortInput = screen.getByLabelText("Organization Translation Short");
         expect(orgTranslationShortInput).toBeInTheDocument();
@@ -87,6 +90,7 @@ describe("UCSBOrganizationCreatePage tests", () => {
         const createButton = screen.getByText("Create");
         expect(createButton).toBeInTheDocument();
 
+        fireEvent.change(orgCodeInput, { target: { value: 'ZPR' } })
         fireEvent.change(orgTranslationShortInput, { target: { value: 'Zeta Phi Rho' } })
         fireEvent.change(orgTranslationInput, { target: { value: 'Zeta Phi Rho' } })
         fireEvent.change(inactiveInput, { target: { value: "false" } })
@@ -95,6 +99,7 @@ describe("UCSBOrganizationCreatePage tests", () => {
         await waitFor(() => expect(axiosMock.history.post.length).toBe(1));
 
         expect(axiosMock.history.post[0].params).toEqual({
+            orgCode: "ZPR",
             orgTranslationShort: "Zeta Phi Rho",
             orgTranslation: "Zeta Phi Rho",
             inactive: "false"
