@@ -39,6 +39,28 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                 </Form.Group>
             )}
 
+            {!initialContents && (
+                <Form.Group className="mb-3" >
+                <Form.Label htmlFor="orgCode">Organization Code</Form.Label>
+                <Form.Control
+                    data-testid={testIdPrefix + "-orgCode"}
+                    id="orgCode"
+                    type="text"
+                    isInvalid={Boolean(errors.orgCode)}
+                    {...register("orgCode", {
+                        required: "Organization Code is required.",
+                        maxLength : {
+                            value: 30,
+                            message: "Max length 30 characters"
+                        }
+                    })}
+                />
+                <Form.Control.Feedback type="invalid">
+                    {errors.orgCode?.message}
+                </Form.Control.Feedback>
+            </Form.Group>
+            )}
+
             <Form.Group className="mb-3" >
                 <Form.Label htmlFor="orgTranslationShort">Organization Translation Short</Form.Label>
                 <Form.Control
@@ -107,7 +129,6 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             </Button>
 
         </Form>
-
     )
 }
 
